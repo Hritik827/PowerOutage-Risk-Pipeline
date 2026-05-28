@@ -1,0 +1,27 @@
+stages:
+  prepare_original:
+    cmd: python scripts/prepare_original_dataset.py
+    deps:
+      - scripts/prepare_original_dataset.py
+      - src/power_outage_mlops
+    outs:
+      - data/processed/original_power_outage_training.csv
+  prepare_merged:
+    cmd: python scripts/prepare_from_merged_dataset.py
+    deps:
+      - scripts/prepare_from_merged_dataset.py
+      - src/power_outage_mlops
+    outs:
+      - data/processed/merged_power_outage_training.csv
+  train:
+    cmd: python main.py
+    deps:
+      - data/processed/original_power_outage_training.csv
+      - src/power_outage_mlops
+      - main.py
+    outs:
+      - data/processed/train.csv
+      - models/model.joblib
+    metrics:
+      - models/metrics.json:
+          cache: false

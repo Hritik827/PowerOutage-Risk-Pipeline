@@ -1,0 +1,21 @@
+state,ownership,primary_storm_type,storm_event_count,total_property_damage_usd,total_crop_damage_usd,county_count,saidi_minutes,saifi_interruptions,caidi_minutes,population_served,outage_risk
+TX,Investor Owned,Thunderstorm Wind,240,12500000,120000,55,310,2.7,115,1900000,1
+FL,Investor Owned,Hurricane,180,44000000,250000,32,420,3.1,135,2400000,1
+CA,Municipal,Heat,75,850000,50000,12,120,0.9,133,600000,0
+NY,Investor Owned,Winter Storm,130,3200000,40000,22,190,1.4,136,1200000,1
+IL,Cooperative,Thunderstorm Wind,95,900000,10000,18,105,0.8,131,280000,0
+AL,Cooperative,Tornado,145,5000000,80000,24,260,2.2,118,420000,1
+TX,Municipal,Flood,60,700000,15000,8,90,0.6,150,180000,0
+FL,Cooperative,Thunderstorm Wind,110,1600000,65000,15,150,1.1,136,310000,0
+CA,Investor Owned,Thunderstorm Wind,85,1200000,20000,20,155,1.0,155,950000,0
+NY,Municipal,Winter Storm,155,6100000,30000,28,240,2.0,120,760000,1
+IL,Investor Owned,Flood,125,2400000,90000,21,185,1.5,123,880000,1
+AL,Municipal,Tornado,58,550000,12000,7,80,0.7,114,150000,0
+TX,Cooperative,Thunderstorm Wind,165,3900000,70000,26,230,1.9,121,530000,1
+FL,Municipal,Hurricane,92,1300000,18000,9,130,0.9,144,260000,0
+CA,Cooperative,Winter Storm,70,650000,5000,10,95,0.7,136,210000,0
+NY,Cooperative,Thunderstorm Wind,118,1800000,25000,16,160,1.2,133,330000,0
+IL,Municipal,Thunderstorm Wind,142,3300000,45000,23,225,1.8,125,510000,1
+AL,Investor Owned,Thunderstorm Wind,160,4200000,85000,27,250,2.0,125,690000,1
+TX,Investor Owned,Hurricane,210,19000000,210000,44,380,3.0,127,1700000,1
+FL,Cooperative,Flood,80,760000,22000,11,100,0.8,125,190000,0

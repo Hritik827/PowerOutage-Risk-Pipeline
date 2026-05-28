@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power Outage Risk MLOps</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Flask + Docker + ACR + Azure Web App</p>
+        <h1>Power Outage Risk Prediction</h1>
+        <p class="lede">A containerized MLOps application that predicts outage risk from utility reliability, service territory, and storm impact signals.</p>
+      </div>
+      <div class="status">
+        <span>MLflow tracking</span>
+        <span>DVC data versioning</span>
+        <span>GitHub continuous deployment</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <form class="panel" method="post" action="/predict">
+        <h2>Prediction Input</h2>
+        <label>State
+          <select name="state">
+            {% for state in options.states %}
+            <option value="{{ state }}" {% if form and form.state == state %}selected{% endif %}>{{ state }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>Ownership
+          <select name="ownership">
+            {% for ownership in options.ownerships %}
+            <option value="{{ ownership }}" {% if form and form.ownership == ownership %}selected{% endif %}>{{ ownership }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>Primary Storm Type
+          <select name="primary_storm_type">
+            {% for storm in options.storm_types %}
+            <option value="{{ storm }}" {% if form and form.primary_storm_type == storm %}selected{% endif %}>{{ storm }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>Storm Event Count <input name="storm_event_count" type="number" value="{{ form.storm_event_count if form else 85 }}" required></label>
+        <label>Property Damage USD <input name="total_property_damage_usd" type="number" value="{{ form.total_property_damage_usd if form else 1500000 }}" required></label>
+        <label>Crop Damage USD <input name="total_crop_damage_usd" type="number" value="{{ form.total_crop_damage_usd if form else 35000 }}" required></label>
+        <label>County Count <input name="county_count" type="number" value="{{ form.county_count if form else 18 }}" required></label>
+        <label>SAIDI Minutes <input name="saidi_minutes" type="number" step="0.01" value="{{ form.saidi_minutes if form else 210 }}" required></label>
+        <label>SAIFI Interruptions <input name="saifi_interruptions" type="number" step="0.01" value="{{ form.saifi_interruptions if form else 1.8 }}" required></label>
+        <label>CAIDI Minutes <input name="caidi_minutes" type="number" step="0.01" value="{{ form.caidi_minutes if form else 116 }}" required></label>
+        <label>Population Served <input name="population_served" type="number" value="{{ form.population_served if form else 450000 }}" required></label>
+        <button type="submit">Predict Risk</button>
+      </form>
+
+      <aside class="panel result">
+        <h2>Result</h2>
+        {% if result %}
+        <p class="badge">{{ result.label }}</p>
+        <p class="confidence">{{ "%.1f"|format(result.confidence * 100) }}% confidence</p>
+        {% else %}
+        <p class="muted">Submit the form to score an outage risk scenario.</p>
+        {% endif %}
+        <div class="flow">
+          <span>GitHub</span>
+          <span>Docker</span>
+          <span>ACR</span>
+          <span>Azure Web App</span>
+          <span>Live App</span>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

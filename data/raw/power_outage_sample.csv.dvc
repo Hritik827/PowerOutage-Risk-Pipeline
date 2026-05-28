@@ -1,0 +1,4 @@
+outs:
+  - md5: ca5c2a7f481b52bfa2fa67114f4997e4
+    size: 1582
+    path: power_outage_sample.csv
