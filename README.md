@@ -547,3 +547,12 @@ Container restarts
    ↓
 Live application updated
 ```
+
+
+
+'''
+project live dasboard for data analyst: https://power-outage-dashboard-phim.onrender.com/
+
+
+project live url for data science: https://testdockerhritik-hag0c6cnghd5cdca.centralus-01.azurewebsites.net/predict
+'''
