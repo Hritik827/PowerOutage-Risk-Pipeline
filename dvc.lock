@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  prepare_original:
+    cmd: python scripts/prepare_original_dataset.py
+    deps:
+    - path: scripts/prepare_original_dataset.py
+      hash: md5
+      md5: fe6d0155e89c20b86a076f462dcd0d26
+      size: 7452
+    - path: src/power_outage_mlops
+      hash: md5
+      md5: c5cffc11c5d2a79c4e4e94451d8bf3e1.dir
+      size: 13281
+      nfiles: 13
+    outs:
+    - path: data/processed/original_power_outage_training.csv
+      hash: md5
+      md5: a4eae054dab4ee7134cf3a8b61da9bc7
+      size: 206681
+  train:
+    cmd: python main.py
+    deps:
+    - path: data/processed/original_power_outage_training.csv
+      hash: md5
+      md5: a4eae054dab4ee7134cf3a8b61da9bc7
+      size: 206681
+    - path: main.py
+      hash: md5
+      md5: ced1cee4576d6bd77d61bf58fed1facb
+      size: 166
+    - path: src/power_outage_mlops
+      hash: md5
+      md5: c5cffc11c5d2a79c4e4e94451d8bf3e1.dir
+      size: 13281
+      nfiles: 13
+    outs:
+    - path: data/processed/train.csv
+      hash: md5
+      md5: ab1a97cc5f776f239928f35492388b33
+      size: 206678
+    - path: models/metrics.json
+      hash: md5
+      md5: 21873342851772625f72f24e8d793e51
+      size: 121
+    - path: models/model.joblib
+      hash: md5
+      md5: edd1dfed1dc862a044c14b52424511f9
+      size: 785499
